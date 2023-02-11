@@ -6,6 +6,7 @@ module HW01Tests where
 
 import HW01
 import Testing
+import HW01 (lastDigit, dropLastDigit, toRevDigits)
 
 -- Exercise 1 -----------------------------------------
 
@@ -24,8 +25,13 @@ ex1Tests = [ Test "lastDigit test" testLastDigit
 
 -- Exercise 2 -----------------------------------------
 
+testToRevDigits :: (Integer, [Integer]) -> Bool
+testToRevDigits (n, ns) = toRevDigits n == ns
+
 ex2Tests :: [Test]
-ex2Tests = []
+ex2Tests = [ Test "toRevDigits" testToRevDigits
+              [(1, [1]), (12, [2, 1]), (123, [3, 2, 1])]
+           ]
 
 -- Exercise 3 -----------------------------------------
 
