@@ -22,7 +22,9 @@ toRevDigits n
 
 -- Double every second number in a list starting on the left.
 doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther = undefined
+doubleEveryOther [] = []
+doubleEveryOther [x] = [2 * x]
+doubleEveryOther (x:y:xs) = (2*x):y:doubleEveryOther xs
 
 -- Exercise 4 -----------------------------------------
 

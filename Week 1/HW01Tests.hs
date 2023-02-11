@@ -6,7 +6,7 @@ module HW01Tests where
 
 import HW01
 import Testing
-import HW01 (lastDigit, dropLastDigit, toRevDigits)
+import HW01 (lastDigit, dropLastDigit, toRevDigits, doubleEveryOther)
 
 -- Exercise 1 -----------------------------------------
 
@@ -35,8 +35,13 @@ ex2Tests = [ Test "toRevDigits" testToRevDigits
 
 -- Exercise 3 -----------------------------------------
 
+testDoubleEveryOther :: ([Integer], [Integer]) -> Bool
+testDoubleEveryOther (xs, ys) = doubleEveryOther xs == ys
+
 ex3Tests :: [Test]
-ex3Tests = []
+ex3Tests = [ Test "doubleEveryOther" testDoubleEveryOther
+              [([], []), ([1], [2]), ([1, 2], [2, 2]), ([1,2,3], [2,2,6])]
+           ]
 
 -- Exercise 4 -----------------------------------------
 
