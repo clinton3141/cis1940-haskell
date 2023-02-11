@@ -15,6 +15,7 @@ dropLastDigit = flip div 10
 
 toRevDigits :: Integer -> [Integer]
 toRevDigits n
+  | n < 0     = []
   | n < 10    = [n]
   | otherwise = lastDigit n : toRevDigits (dropLastDigit n)
 

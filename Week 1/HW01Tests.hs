@@ -30,7 +30,7 @@ testToRevDigits (n, ns) = toRevDigits n == ns
 
 ex2Tests :: [Test]
 ex2Tests = [ Test "toRevDigits" testToRevDigits
-              [(1, [1]), (12, [2, 1]), (123, [3, 2, 1])]
+              [(1, [1]), (12, [2, 1]), (123, [3, 2, 1]), (-17, [])]
            ]
 
 -- Exercise 3 -----------------------------------------
