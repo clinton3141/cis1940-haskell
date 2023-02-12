@@ -53,4 +53,6 @@ type Peg = String
 type Move = (Peg, Peg)
 
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
-hanoi = undefined
+hanoi 0 _ _ _ = []
+hanoi 1 src dest _ = [(src, dest)]
+hanoi n src dest store = hanoi (n - 1) src store dest ++ [(src, dest)] ++ hanoi (n - 1) store dest src

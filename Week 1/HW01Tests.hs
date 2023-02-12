@@ -65,8 +65,25 @@ ex5Tests = [ Test "luhn" testLuhn
 
 -- Exercise 6 -----------------------------------------
 
+testHanoi :: (Integer, String, String, String, [(String, String)]) -> Bool
+testHanoi (n, a, b, c, ms) = hanoi n a b c == ms
+
+testHanoiLength :: (Integer, String, String, String, Int) -> Bool
+testHanoiLength (n, _, _, _, l) = length (hanoi n "a" "b" "c") == l
+
 ex6Tests :: [Test]
-ex6Tests = []
+ex6Tests = [ Test "hanoi" testHanoi
+            [
+              (0, "a", "b", "c", []),
+              (1, "a", "b", "c", [("a", "b")]),
+              (2, "a", "b", "c", [("a", "c"), ("a", "b"), ("c", "b")]),
+              (3, "a", "b", "c", [("a", "b"), ("a", "c"), ("b", "c"), ("a", "b"), ("c", "a"), ("c","b"), ("a", "b")])
+            ],
+            Test "optimal hanoi solution" testHanoiLength
+            [
+              (n, "a", "b", "c", 2^n - 1) | n <- [0..10]
+            ]
+           ]
 
 -- All Tests ------------------------------------------
 
