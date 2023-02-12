@@ -23,17 +23,19 @@ colors = [Red, Green, Blue, Yellow, Orange, Purple]
 
 -- Get the number of exact matches between the actual code and the guess
 exactMatches :: Code -> Code -> Int
-exactMatches = undefined
+exactMatches xs ys = length (filter isSameColour (zip xs ys)) where
+  isSameColour = uncurry (==)
 
 -- Exercise 2 -----------------------------------------
 
 -- For each peg in xs, count how many times is occurs in ys
 countColors :: Code -> [Int]
-countColors = undefined
+countColors cs = [f cs x | x <- colors]
+            where f xs c = length (filter (== c) xs)
 
 -- Count number of matches between the actual code and the guess
 matches :: Code -> Code -> Int
-matches = undefined
+matches xs ys = length (filter (> 0) (zipWith min (countColors xs) (countColors ys)))
 
 -- Exercise 3 -----------------------------------------
 
