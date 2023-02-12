@@ -1,3 +1,5 @@
+-- TODO: find out how to properly structure a Haskell project
+
 {-# OPTIONS_GHC -Wall #-}
 {-# LANGUAGE ExistentialQuantification #-}
 module Testing where
