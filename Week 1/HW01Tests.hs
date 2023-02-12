@@ -75,9 +75,9 @@ ex6Tests :: [Test]
 ex6Tests = [ Test "hanoi" testHanoi
             [
               (0, "a", "b", "c", []),
-              (1, "a", "b", "c", [("a", "b")]),
-              (2, "a", "b", "c", [("a", "c"), ("a", "b"), ("c", "b")]),
-              (3, "a", "b", "c", [("a", "b"), ("a", "c"), ("b", "c"), ("a", "b"), ("c", "a"), ("c","b"), ("a", "b")])
+              (1, "a", "b", "c", [("a", "c")]),
+              (2, "a", "b", "c", [("a", "b"), ("a", "c"), ("b", "c")]),
+              (3, "a", "b", "c", [("a", "c"), ("a", "b"), ("c", "b"), ("a", "c"), ("b", "a"), ("b","c"), ("a", "c")])
             ],
             Test "optimal hanoi solution" testHanoiLength
             [

@@ -54,5 +54,5 @@ type Move = (Peg, Peg)
 
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
 hanoi 0 _ _ _ = []
-hanoi 1 src dest _ = [(src, dest)]
-hanoi n src dest store = hanoi (n - 1) src store dest ++ [(src, dest)] ++ hanoi (n - 1) store dest src
+hanoi 1 src _ dest = [(src, dest)]
+hanoi n src store dest = hanoi (n - 1) src dest store ++ [(src, dest)] ++ hanoi (n - 1) store src dest
